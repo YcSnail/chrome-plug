@@ -1,0 +1,201 @@
+{
+"update_url": "https://clients2.google.com/service/update2/crx",
+
+  "manifest_version": 2,
+  "name": "新媒体管家",
+  "version": "6.5.6",
+  "description": "最好用的新媒体运营工具，数百万新媒体人的选择！",
+  "options_page": "options.html",
+  "content_scripts":[
+   {
+      "matches": ["<all_urls>"],
+      "js": ["./static/js/libs/jquery.js", "./static/js/libs/vue.js", "./static/js/libs/vue-resource.js", "./static/js/libs/vue-router.js",
+        "./static/js/content-scripts/collectionImg.entry.js", "./static/js/content-scripts/collectionImg.bundle.js",
+        "./static/js/content-scripts/collection.entry.js", "./static/js/content-scripts/collection.bundle.js",
+        "./static/inject-resource/js/Readability.js",
+        "./static/js/content-scripts/styleCollect.entry.js", "./static/js/content-scripts/styleCollect.bundle.js"]
+    },
+    {
+      "matches": ["*://mp.weixin.qq.com/*"],
+      "js": ["./static/js/content-scripts/wx.entry.js", "./static/js/content-scripts/wx.bundle.js",
+        "./static/js/content-scripts/style.entry.js", "./static/js/content-scripts/style.bundle.js"]
+    },
+    {
+      "matches": ["*://mp.weixin.qq.com/cgi-bin/appmsg?t=media/appmsg_edit*"],
+      "js":["./static/inject-resource/codemirror/codemirror.js", "./static/inject-resource/codemirror/formatting.js",
+        "./static/inject-resource/codemirror/mode/htmlmixed/htmlmixed.js", "./static/inject-resource/codemirror/mode/xml/xml.js"]
+    },
+    {
+      "matches": ["*://mp.weixin.qq.com/cgi-bin/appmsg?t=media/appmsg_edit*", "*://mp.weixin.qq.com/cgi-bin/appmsgtemplate?action=edit*"],
+      "js":["./static/js/content-scripts/editorExpand.entry.js", "./static/js/content-scripts/editorExpand.bundle.js",
+        "./static/js/content-scripts/compressImg.entry.js", "./static/js/content-scripts/compressImg.bundle.js"]
+    },
+    {
+      "matches": ["*://mp.weixin.qq.com/cgi-bin/filepage?type=2*"],
+      "js": ["./static/js/content-scripts/compressImg.entry.js", "./static/js/content-scripts/compressImg.bundle.js"]
+    },
+    {
+      "matches": ["*://mp.weixin.qq.com/cgi-bin/appmsg?begin=*","*://mp.weixin.qq.com/s?__biz=*"],
+      "js": ["./static/js/content-scripts/permanent.entry.js", "./static/js/content-scripts/permanent.bundle.js"]
+    },
+    {
+      "matches": ["*://mp.weixin.qq.com/cgi-bin/message?t=message/list&*",
+        "*://mp.weixin.qq.com/advanced/autoreply?*t=ivr/reply*",
+        "*://mp.weixin.qq.com/advanced/autoreply?*t=ivr/keywords*",
+        "*://mp.weixin.qq.com/cgi-bin/masssendpage?t=mass/send*",
+        "*://mp.weixin.qq.com/cgi-bin/appmsg?*t=media/appmsg_list*",
+        "*://mp.weixin.qq.com/cgi-bin/home?t=home/index*",
+        "*://mp.weixin.qq.com/misc/appmsganalysis?action=all&*"],
+      "js": ["./static/js/content-scripts/managerExpand.entry.js", "./static/js/content-scripts/managerExpand.bundle.js"]
+    },
+    {
+      "matches": ["*://mp.toutiao.com/*","*://sso.toutiao.com/*"],
+      "js": ["./static/js/content-scripts/tt.entry.js", "./static/js/content-scripts/tt.bundle.js"]
+    },
+    {
+      "matches": ["*://www.toutiao.com/*"],
+      "js": ["static/js/content-scripts/ttCollect.entry.js", "./static/js/content-scripts/ttCollect.bundle.js",
+        "./static/js/content-scripts/ttStyle.entry.js", "./static/js/content-scripts/ttStyle.bundle.js"]
+    },
+    {
+      "matches": ["*://om.qq.com/*"],
+      "js": ["./static/js/content-scripts/om.entry.js", "./static/js/content-scripts/om.bundle.js"]
+    },
+    {
+      "matches": ["*://mp.yidianzixun.com/*"],
+      "js": ["./static/js/content-scripts/op.entry.js", "./static/js/content-scripts/op.bundle.js"]
+    },
+    {
+      "matches": ["*://weibo.com/*", "*://www.weibo.com/*", "*://card.weibo.com/*"],
+      "js": ["./static/js/content-scripts/wb.entry.js", "./static/js/content-scripts/wb.bundle.js"]
+    },
+    {
+      "matches": ["*://baijiahao.baidu.com/*"],
+      "js": ["./static/js/content-scripts/bj.entry.js", "./static/js/content-scripts/bj.bundle.js"]
+    },
+    {
+      "matches": ["*://mp.dayu.com/*"],
+      "js": ["./static/js/content-scripts/uc.entry.js", "./static/js/content-scripts/uc.bundle.js"]
+    },
+    {
+      "matches": ["*://www.zhihu.com/*", "*://zhuanlan.zhihu.com/*"],
+      "js": ["./static/js/content-scripts/zh.entry.js", "./static/js/content-scripts/zh.bundle.js"]
+    },
+    {
+      "matches": ["*://mp.163.com/*"],
+      "js": ["./static/js/content-scripts/wy.entry.js", "./static/js/content-scripts/wy.bundle.js"]
+    },
+    {
+      "matches": ["*://mp.sohu.com/*"],
+      "js": ["./static/js/content-scripts/sh.entry.js", "./static/js/content-scripts/sh.bundle.js"]
+    },
+    {
+      "matches": ["*://www.jianshu.com/*"],
+      "js": ["./static/js/content-scripts/js.entry.js", "./static/js/content-scripts/js.bundle.js"]
+    },
+    {
+      "matches": ["*://www.douban.com/*"],
+      "js": ["./static/js/content-scripts/db.entry.js", "./static/js/content-scripts/db.bundle.js"]
+    },
+    {
+      "matches": ["*://t.wxb.com/*"],
+      "js": ["./static/js/content-scripts/wxb.entry.js", "./static/js/content-scripts/wxb.bundle.js"]
+    },
+    {
+      "matches": ["*://www.newrank.cn/*"],
+      "js": ["./static/js/content-scripts/xb.entry.js", "./static/js/content-scripts/xb.bundle.js"]
+    },
+    {
+      "matches": ["*://mp.weixin.qq.com/*", "*://mp.toutiao.com/*", "*://sso.toutiao.com/*", "*://om.qq.com/*", "*://mp.yidianzixun.com/*", "*://weibo.com/*", "*://baijiahao.baidu.com/*", "*://mp.dayu.com/*", "*://www.zhihu.com/*", "*://mp.163.com/*", "*://mp.sohu.com/*", "*://www.jianshu.com/*", "*://www.douban.com/*"],
+      "js": ["./static/js/content-scripts/loginAccountStyle.entry.js", "./static/js/content-scripts/loginAccountStyle.bundle.js"]
+    },
+    {
+      "matches": ["*://article.xmt.cn/*", "*://x.xmt.cn/sync/*", "*://search.xmt.cn/*", "*://*.xmt.cn/*"],
+      "js": ["./static/js/content-scripts/sendExtId.entry.js"],
+      "run_at": "document_end"
+    },
+    {
+      "matches":["*://webzj.reg.163.com/*"],
+      "all_frames": true,
+      "js": ["./static/js/libs/jquery.js",
+        "./static/js/content-scripts/wy.entry.js", "./static/js/content-scripts/wy.bundle.js",
+        "./static/js/content-scripts/loginAccountStyle.entry.js", "./static/js/content-scripts/loginAccountStyle.bundle.js"
+      ]
+    },
+    {
+      "matches": ["*://api.open.uc.cn/*"],
+      "all_frames": true,
+      "js": ["./static/js/libs/jquery.js",
+        "./static/js/content-scripts/uc.entry.js", "./static/js/content-scripts/uc.bundle.js",
+        "./static/js/content-scripts/loginAccountStyle.entry.js", "./static/js/content-scripts/loginAccountStyle.bundle.js"
+      ]
+    },
+    {
+      "matches": ["*://x.xmt.cn/sxl/index.html"],
+      "js": ["./static/js/content-scripts/sxl.entry.js", "./static/js/content-scripts/sxl.bundle.js"]
+    },
+    {
+      "matches": ["*://mp.toutiao.com/profile_*"],
+      "js": ["./static/js/content-scripts/ttEditorExpand.entry.js", "./static/js/content-scripts/ttEditorExpand.bundle.js",
+        "./static/js/content-scripts/ttStyle.entry.js", "./static/js/content-scripts/ttStyle.bundle.js"]
+    },
+    {
+      "matches": ["*://detail.tmall.com/*", "*://item.taobao.com/*"],
+      "js": ["./static/js/libs/jquery.js", "./static/js/content-scripts/shop.entry.js", "./static/js/content-scripts/shop.bundle.js"]
+    }
+  ],
+  "icons": {
+    "16": "static/img/icon16.png",
+    "48": "static/img/icon48.png",
+    "128": "static/img/icon128.png"
+  },
+  "background": {
+    "scripts": ["./static/js/manifest.js","./static/js/vendor.js","./static/js/background.js"],
+    "persistent": true
+  },
+  "browser_action": {
+    "default_icon": {
+      "19": "static/img/icon19.png",
+      "38": "static/img/icon38.png"
+    },
+    "default_title": "新媒体管家",
+    "default_popup": "index.html"
+  },
+  "permissions": [
+    "cookies",
+    "tabs",
+    "proxy",
+    "notifications",
+    "storage",
+    "webRequest",
+    "webRequestBlocking",
+    "webNavigation",
+    "contextMenus",
+    "unlimitedStorage",
+    "<all_urls>"
+  ],
+  "externally_connectable": {
+    "matches": [
+      "*://tool-gifcrop.soogif.com/*",
+      "*://tool-compress.soogif.com/*",
+      "*://tool-gifeditor.soogif.com/*",
+      "*://mp.weixin.qq.com/*",
+      "*://mp.toutiao.com/*",
+      "*://xmt.cn/*",
+      "*://*.xmt.cn/*",
+      "*://*.taobao.com/*"
+    ]
+  },
+  "web_accessible_resources": [
+    "static/inject-resource/*",
+    "static/img/icons/*.png",
+    "static/img/icons/*.svg",
+    "static/img/icons/*.gif",
+    "static/img/icon_emoji.png",
+    "static/img/logo.png",
+    "static/img/*",
+    "static/img/icon48.png",
+    "static/img/style-empty.png"
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}
